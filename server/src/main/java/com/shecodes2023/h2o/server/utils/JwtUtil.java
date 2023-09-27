@@ -56,6 +56,20 @@ public class JwtUtil {
         return jwt;
     }
 
+    public static Claims getAllClaimsFromToken(String token) {
+        Claims claims;
+        try {
+            claims = Jwts.parser()
+                    .setSigningKey(JWT_SECRET)
+                    .parseClaimsJws(token)
+                    .getBody();
+        } catch (Exception e) {
+            LOGGER.error("Could not get all claims Token from passed token");
+            claims = null;
+        }
+        return claims;
+    }
+
     public static int getAccountIdFromToken(String token) {
         Jws<Claims> jwt = JwtUtil.parseJwt(token);
 

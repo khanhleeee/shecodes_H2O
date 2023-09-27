@@ -1,6 +1,8 @@
 # SHE CODES 2023 - H2O TEAM - BACK-END CODE
 
 ## HOW TO RUN
+**Step 00: Access to server folder (!important)**
+
 **Step 01:** Config profile
   - Change profile in `/src/main/resources/profiles/default/application.yml` folder
   - In line 29, change to `active: default,profileName` (ex: active: default,tiendev)

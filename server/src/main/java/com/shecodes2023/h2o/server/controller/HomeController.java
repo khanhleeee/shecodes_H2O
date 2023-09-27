@@ -1,5 +1,7 @@
 package com.shecodes2023.h2o.server.controller;
 
+import com.shecodes2023.h2o.server.basemodels.BaseResponse;
+import com.shecodes2023.h2o.server.handler.ResponseBuilder;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -7,6 +9,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,8 +28,12 @@ public class HomeController {
     })
     @SecurityRequirements
     @GetMapping(value = "/home")
-    public String home() {
+    public ResponseEntity<BaseResponse<String>> home() {
 
-        return "She Codes 2023 - H2O - tienhuynh-tn";
+        return ResponseBuilder.generateResponse(
+                "Successfully!",
+                HttpStatus.OK,
+                "She Codes 2023 - H2O - tienhuynh-tn"
+        );
     }
 }

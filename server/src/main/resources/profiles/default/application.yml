@@ -22,5 +22,20 @@ spring:
         enable_lazy_load_no_trans: true
     show-sql: false
     open-in-view: false
+  mvc:
+    path match:
+      matching-strategy: ANT_PATH_MATCHER
   profiles:
     active: default
+
+springdoc:
+  packages-to-scan: com.shecodes2023.h2o.server.controller
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  model-and-view-allowed: false
+  swagger-ui:
+    operations-sorter: method
+    tags-sorter: alpha
+    try-it-out-enabled: true
+    filter: true
+    default-models-expand-depth: -1

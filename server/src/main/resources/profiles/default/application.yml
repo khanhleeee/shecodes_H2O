@@ -27,6 +27,8 @@ spring:
       matching-strategy: ANT_PATH_MATCHER
   profiles:
     active: default
+#    Thay đổi active profile như example dưới đây
+#    active: default,tiendev
 
 springdoc:
   packages-to-scan: com.shecodes2023.h2o.server.controller

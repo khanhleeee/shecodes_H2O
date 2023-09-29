@@ -107,6 +107,34 @@
                 <spring.profiles.active>tiendev</spring.profiles.active>
             </properties>
         </profile>
+        <profile>
+            <id>khanhdev</id>
+            <build>
+                <finalName>shecodes-2023-h2o-khanhdev</finalName>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/profiles/dev</directory>
+                    </resource>
+                </resources>
+            </build>
+            <properties>
+                <spring.profiles.active>khanhdev</spring.profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>quynhdev</id>
+            <build>
+                <finalName>shecodes-2023-h2o-quynhdev</finalName>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/profiles/dev</directory>
+                    </resource>
+                </resources>
+            </build>
+            <properties>
+                <spring.profiles.active>quynhdev</spring.profiles.active>
+            </properties>
+        </profile>
     </profiles>
 
     <build>

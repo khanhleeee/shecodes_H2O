@@ -33,4 +33,4 @@ build/
 .vscode/
 
 server/logs/**
-**/profiles/**
+server/src/main/resources/profiles/**

@@ -5,7 +5,38 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    @apply font-sf
-  }
+	html {
+		@apply font-sf;
+	}
+}
+
+@layer components {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		@apply font-bold;
+	}
+	h1 {
+		@apply text-[64px] leading-[72px];
+	}
+	h2 {
+		@apply text-[48px] leading-[62px];
+	}
+	h3 {
+		@apply text-[36px] leading-[42px];
+	}
+	h4 {
+		@apply text-[24px] leading-[32px];
+	}
+	h5 {
+		@apply text-[24px] leading-[26px];
+	}
+	h6 {
+		@apply text-[18x] leading-[24px];
+	}
+	p {
+		@apply leading-6;
+	}
 }

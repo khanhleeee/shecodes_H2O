@@ -1,6 +1,6 @@
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
-
 import Button from './components/Button/Button'
+import Card from './components/Card/Card'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 
 function App() {
 	return (
@@ -17,6 +17,8 @@ function App() {
 					icon={<MagnifyingGlassIcon className='h-5 w-5 font-bold' />}
 				/>
 			</div>
+			<h2>Card</h2>
+			<Card></Card>
 			<hr />
 			<h2>Texts</h2>
 			<div className='flex flex-col gap-y-4'>

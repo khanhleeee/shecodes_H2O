@@ -1,12 +1,13 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 
 import Button from './components/Button/Button'
+import SearchBar from './components/SearchBar/SearchBar'
 
 function App() {
 	return (
 		<div id='App' className='p-2'>
 			<h2>Button</h2>
-			<div className='flex mb-8'>
+			<div className='flex py-4 mb-8'>
 				<Button>Primary</Button>
 				<Button secondary>Secondary</Button>
 				<Button outlined>Outlined</Button>
@@ -16,6 +17,12 @@ function App() {
 				<Button
 					icon={<MagnifyingGlassIcon className='h-5 w-5 font-bold' />}
 				/>
+			</div>
+			<hr />
+			<h2>Search Bar</h2>
+			<div className='flex items-center gap-4 py-4 mb-8'>
+				<SearchBar />
+				<SearchBar buttonSearch={true} />
 			</div>
 			<hr />
 			<h2>Texts</h2>

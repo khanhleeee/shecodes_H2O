@@ -1,5 +1,17 @@
 # SHE CODES 2023 - H2O TEAM - BACK-END CODE
 
+## SERVER PRODUCTION
+
+- Swagger: https://partnerup-api.azurewebsites.net/swagger-ui/index.html
+- Database: 
+  - **Remember to add Firewalls Rule IP Address before accessing to Azure SQL Database**
+  - Information:
+    - Host: shecodes2023.database.windows.net
+    - Port: 1433
+    - User: h2oadmin
+    - Password: H2oteam123@
+    - Database: SheCodes2023H2O
+
 ## HOW TO RUN
 **Step 00: Access to server folder (!important)**
 

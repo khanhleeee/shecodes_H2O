@@ -1,14 +1,18 @@
 import Button from './components/Button/Button'
 import Card from './components/Card/Card'
 import CheckBox from './components/Checkbox/Checkbox'
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import RadioButton from './components/RadioButton/RadioButton'
+import SearchBar from './components/SearchBar/SearchBar'
+
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+
+
 
 function App() {
 	return (
 		<div id='App' className='p-2'>
 			<h2>Button</h2>
-			<div className='flex mb-8'>
+			<div className='flex py-4 mb-8'>
 				<Button>Primary</Button>
 				<Button secondary>Secondary</Button>
 				<Button outlined>Outlined</Button>
@@ -25,6 +29,12 @@ function App() {
 			<RadioButton></RadioButton>
 			<h2>CheckBox</h2>
 			<CheckBox></CheckBox>
+			<hr />
+			<h2>Search Bar</h2>
+			<div className='flex items-center gap-4 py-4 mb-8'>
+				<SearchBar />
+				<SearchBar buttonSearch={true} />
+			</div>
 			<hr />
 			<h2>Texts</h2>
 			<div className='flex flex-col gap-y-4'>

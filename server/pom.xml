@@ -143,6 +143,23 @@
                 <spring.profiles.active>quynhdev</spring.profiles.active>
             </properties>
         </profile>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <finalName>shecodes-2023-h2o-prod</finalName>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/profiles/prod</directory>
+                    </resource>
+                </resources>
+            </build>
+            <properties>
+                <spring.profiles.active>prod</spring.profiles.active>
+            </properties>
+        </profile>
     </profiles>
 
     <build>

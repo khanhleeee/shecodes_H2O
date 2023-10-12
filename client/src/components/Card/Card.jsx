@@ -1,10 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import './Card.css'
+
 import PropTypes from "prop-types";
 
 function Card() {
   return (
-    <div className="relative mt-6 flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+    <div className="form-card">
       <div className="p-6">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -20,10 +22,10 @@ function Card() {
           ></path>
           <path d="M5.26 17.242a.75.75 0 10-.897-1.203 5.243 5.243 0 00-2.05 5.022.75.75 0 00.625.627 5.243 5.243 0 005.022-2.051.75.75 0 10-1.202-.897 3.744 3.744 0 01-3.008 1.51c0-1.23.592-2.323 1.51-3.008z"></path>
         </svg>
-        <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+        <h5 className="title">
           Exponential Growth
         </h5>
-        <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+        <p className="child-title">
           Achieve Exponential Growth For Your Business
         </p>
       </div>

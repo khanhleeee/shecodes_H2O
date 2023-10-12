@@ -1,6 +1,8 @@
 import Button from './components/Button/Button'
 import Card from './components/Card/Card'
+import CheckBox from './components/Checkbox/Checkbox'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import RadioButton from './components/RadioButton/RadioButton'
 
 function App() {
 	return (
@@ -19,6 +21,10 @@ function App() {
 			</div>
 			<h2>Card</h2>
 			<Card></Card>
+			<h2>Radio Button </h2>
+			<RadioButton></RadioButton>
+			<h2>CheckBox</h2>
+			<CheckBox></CheckBox>
 			<hr />
 			<h2>Texts</h2>
 			<div className='flex flex-col gap-y-4'>

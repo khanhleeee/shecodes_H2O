@@ -2,6 +2,7 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 
 import Button from './components/Button/Button'
 import SearchBar from './components/SearchBar/SearchBar'
+import Form from './components/Form/Form'
 
 function App() {
 	return (
@@ -25,6 +26,10 @@ function App() {
 				<SearchBar buttonSearch={true} />
 			</div>
 			<hr />
+			<h2>Form</h2>
+			<div className='py-8'>
+				<Form />
+			</div>
 			<h2>Texts</h2>
 			<div className='flex flex-col gap-y-4'>
 				<h1>Heading 1</h1>

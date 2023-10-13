@@ -20,6 +20,9 @@ public class OpenApiConfig {
 
     @Bean
     public OpenAPI sheCodes2023H2OOpenApi() {
+        Server prodServer = new Server();
+        prodServer.setUrl("https://partnerup-api.azurewebsites.net/");
+        prodServer.setDescription("Server URL in Production environment");
         Server localServer = new Server();
         localServer.setUrl("http://localhost:8081");
         localServer.setDescription("Server URL in Local environment");
@@ -35,7 +38,7 @@ public class OpenApiConfig {
                                 .name("The GNU General Public License v3.0")
                                 .url("https://www.gnu.org/licenses/gpl-3.0.html"))
                         .version("1.0.0"))
-                .servers(List.of(localServer))
+                .servers(List.of(prodServer, localServer))
                 .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
                 .components(
                         new Components().addSecuritySchemes(

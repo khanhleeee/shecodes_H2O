@@ -4,7 +4,7 @@ import './Card.css'
 
 import PropTypes from 'prop-types'
 
-function Card(props) {
+function Card({ item }) {
 	return (
 		<div className='form-card'>
 			<div className='p-6'>

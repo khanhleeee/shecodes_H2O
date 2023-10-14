@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { useEffect, useRef } from 'react'
 
 import Button from '../Button/Button'
 
@@ -24,8 +25,34 @@ const navItems = [
 ]
 
 function Header() {
+	const headerRef = useRef(null)
+
+	useEffect(() => {
+		const handleScrollHeader = () => {
+			if (
+				document.body.scrollTop > 50 ||
+				document.documentElement.scrollTop > 50
+			) {
+				headerRef.current.classList.remove('bg-white/50')
+				headerRef.current.classList.add('bg-white')
+			} else {
+				headerRef.current.classList.remove('bg-white')
+				headerRef.current.classList.add('bg-white/50')
+			}
+		}
+
+		window.addEventListener('scroll', handleScrollHeader)
+
+		return () => {
+			window.removeEventListener('scroll', handleScrollHeader)
+		}
+	}, [])
+
 	return (
-		<header className='fixed w-full bg-white/50 backdrop-opacity-10'>
+		<header
+			ref={headerRef}
+			className='fixed w-full bg-white/50 backdrop-opacity-10 z-20 transition-colors duration-200'
+		>
 			<div className='container mx-auto flex justify-between items-center py-4 px-16'>
 				<img className='h-10' src={Logo} alt='logo' />
 				<nav>

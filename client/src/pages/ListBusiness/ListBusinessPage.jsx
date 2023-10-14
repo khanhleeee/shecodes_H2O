@@ -1,7 +1,10 @@
 // import Card from "../components/Card/Card"
 
+//import CardBusinessSuggest from "../../components/Card/CardBusinessSuggest";
+
 import CardDetails from "../../components/Card/CardDetails";
 import CheckBox from "../../components/Checkbox/Checkbox";
+import { NavLink } from "react-router-dom";
 import RadioButton from "../../components/RadioButton/RadioButton"
 import background from "../../assets/background.png";
 
@@ -29,19 +32,28 @@ function ListBusinessPage() {
         </div>
         <div className="w-auto bg-slate-200 flex">
           <div className="">
-            <div className="relative inline-block ml-[120px] bg-slate-200 flex-row">
+            <div className="relative inline-block ml-[70px] bg-slate-200 flex-row">
               <span className="pl-px[20px] inline-block mt-8 text-black text-2xl font-bold">
                 Gợi ý doanh nghiệp tương tự
               </span>
-              <CardDetails></CardDetails>
+              <div
+                className="flex flex-nowrap overflow-x-auto"
+                style={{ overflowX: "auto", whiteSpace: "nowrap" }}
+              >
+                <NavLink to="/agency/details">
+                  <CardDetails></CardDetails>
+                </NavLink>
+              </div>
             </div>
             <div className="w-auto h-full px-10 flex-col bg-slate-200">
-              <span className="ml-[100px] mt-[30px] inline-block text-black text-2xl font-bold">
-                3177 doanh nghiệp
+              <span className="ml-[40px] mt-[30px] inline-block text-black text-2xl font-bold">
+                4 doanh nghiệp
               </span>
-              <div className="relative mt-[36x] px-4 ml-16 bg-slate-200">
+              <div className="relative mt-[36x] px-4 ml-5 bg-slate-200">
                 <div className="relative inline-block bg-slate-200">
-                  <CardDetails></CardDetails>
+                  <NavLink to="/agencies/details">
+                    <CardDetails></CardDetails>
+                  </NavLink>
                 </div>
               </div>
             </div>

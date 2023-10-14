@@ -1,5 +1,5 @@
 .search-container {
-	@apply w-fit flex items-center py-3 px-4 border-2 border-gray-light rounded text-gray-dark active:border-main-blue transition-colors duration-150;
+	@apply w-fit bg-white flex items-center py-3 px-4 border-2 border-gray-light rounded text-gray-dark active:border-main-blue transition-colors duration-150;
 }
 .search-container:hover {
 	@apply border-black/60;
@@ -10,7 +10,7 @@
 
 /* Search Button */
 .search-container.search-w-button {
-	@apply w-fit rounded-full hover:border-gray-light active:border-gray-light py-1 pr-1;
+	@apply w-fit rounded-full outline-none border-none hover:border-none py-1 pr-1;
 }
 .search-w-button span {
 	@apply inline-block px-8 text-center border-r-2 text-black;

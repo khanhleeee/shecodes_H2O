@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import ArrowRight from '../../assets/icons/arrow_right.svg'
 
 import SearchBar from '../../components/SearchBar/SearchBar'
@@ -11,9 +12,22 @@ import Sponsor2 from '../../assets/sponsors/sponsor2.png'
 import Sponsor3 from '../../assets/sponsors/sponsor3.png'
 import Text1 from '../../assets/imgs/text1.png'
 import Piece1 from '../../assets/imgs/piece1.png'
-import Card from '../../components/Card/Card'
+import partnerUpApi from '../../config/partnerupdb'
 
 function Home() {
+	useEffect(() => {
+		const getCompanis = async () => {
+			const result = await partnerUpApi.getCompanyList({
+				params: {
+					pageIndex: 1,
+					pageSize: 10,
+				},
+			})
+			console.log(result)
+		}
+		getCompanis()
+	}, [])
+
 	return (
 		<div id='home' className=''>
 			{/* OVERVIEW */}

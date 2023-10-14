@@ -21,4 +21,6 @@ public interface CompanyService {
               List<String> services,
               Integer minBudget,
               Integer maxBudget);
+
+    CompanyResponse getCompanyByCompanyId(int companyId);
 }

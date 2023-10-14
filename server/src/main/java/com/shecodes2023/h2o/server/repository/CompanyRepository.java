@@ -42,6 +42,30 @@ public interface CompanyRepository extends JpaRepository<CompanyInfoEntity, Inte
     List<CustomCompanyDTO> findAllCompanies(@Param("province") String province,
                                             @Param("strListCategories") String strListCategories,
                                             @Param("strListServices") String strListServices,
+                                            @Param("minBudget") Integer minBudget,
+                                            @Param("maxBudget") Integer maxBudget,
                                             @Param("pageSize") int pageSize,
                                             @Param("pageIndex") int pageIndex);
+
+    @Query(value = "SELECT count(*)\n" +
+            "      from CompanyInfo ci\n" +
+            "               join CompanyCategory cc on ci.AccountId = cc.CompanyId\n" +
+            "               join Service s on cc.ServiceId = s.Id\n" +
+            "               join Category c on s.CategoryId = c.Id\n" +
+            "      where (:province is null or ci.province = CONVERT(NVARCHAR(50), :province))\n" +
+            "        and (:strListCategories is null or c.Name in (SELECT value FROM STRING_SPLIT((:strListCategories), ',')))\n" +
+            "        and ((:minBudget is null and :maxBudget is null) or ci.Budget between coalesce(:minBudget, 0) and :maxBudget)\n" +
+            "        and AccountId in (select cc.CompanyId\n" +
+            "                          from CompanyCategory cc\n" +
+            "                          where cc.ServiceId in (select ss.Id\n" +
+            "                                                 from Service ss\n" +
+            "                                                 where (:strListServices is null or ss.Name in\n" +
+            "                                                                                    (SELECT value FROM STRING_SPLIT((:strListServices), ',')))))", nativeQuery = true)
+    long count(
+            @Param("province") String province,
+            @Param("strListCategories") String strListCategories,
+            @Param("strListServices") String strListServices,
+            @Param("minBudget") Integer minBudget,
+            @Param("maxBudget") Integer maxBudget
+    );
 }

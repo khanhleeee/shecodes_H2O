@@ -100,9 +100,20 @@ public class CompanyServiceImpl implements CompanyService {
             strListServices = String.join(",", services);
         List<CustomCompanyDTO> customCompanyDTOS = new ArrayList<>();
         if (basePaginationRequest.getPageIndex() != null && basePaginationRequest.getPageSize() != null)
-            customCompanyDTOS = companyRepository.findAllCompanies(province, strListCategories, strListServices, basePaginationRequest.getPageSize(), basePaginationRequest.getPageIndex());
-        else customCompanyDTOS = companyRepository.findAllCompanies(province, strListCategories, strListServices, 10, 1);
+            customCompanyDTOS = companyRepository.findAllCompanies(province, strListCategories, strListServices, minBudget, maxBudget, basePaginationRequest.getPageSize(), basePaginationRequest.getPageIndex());
+        else customCompanyDTOS = companyRepository.findAllCompanies(province, strListCategories, strListServices, minBudget, maxBudget, 10, 1);
 
         return getListCompanyResponseFromListCustomCompanyDTO(customCompanyDTOS);
+    }
+
+    @Override
+    public int count(String province, List<String> categories, List<String> services, Integer minBudget, Integer maxBudget) {
+        String strListCategories = null;
+        String strListServices = null;
+        if (categories != null)
+            strListCategories = String.join(",", categories);
+        if (services != null)
+            strListServices = String.join(",", services);
+        return (int) companyRepository.count(province, strListCategories, strListServices, minBudget, maxBudget);
     }
 }

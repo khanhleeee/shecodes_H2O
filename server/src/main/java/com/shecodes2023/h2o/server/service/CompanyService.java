@@ -15,4 +15,10 @@ public interface CompanyService {
             Integer maxBudget,
             BasePaginationRequest paginationRequest
     );
+
+    int count(String province,
+              List<String> categories,
+              List<String> services,
+              Integer minBudget,
+              Integer maxBudget);
 }

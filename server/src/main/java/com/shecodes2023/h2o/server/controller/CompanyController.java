@@ -53,4 +53,25 @@ public class CompanyController {
                 responses
         );
     }
+
+    @SecurityRequirements
+    @GetMapping(value = "/count")
+    public ResponseEntity<BaseResponse<Integer>> count(@RequestParam(name = "province", required = false) String province,
+                                                       @RequestParam(name = "categories", required = false) List<String> categories,
+                                                       @RequestParam(name = "services", required = false) List<String> services,
+                                                       @RequestParam(name = "min-budget", required = false) Integer minBudget,
+                                                       @RequestParam(name = "max-budget", required = false) Integer maxBudget) {
+
+        int response = companyService.count(province,
+                categories,
+                services,
+                minBudget,
+                maxBudget);
+
+        return ResponseBuilder.generateResponse(
+                "Count list of company successfully!",
+                HttpStatus.OK,
+                response
+        );
+    }
 }

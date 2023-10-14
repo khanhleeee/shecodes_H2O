@@ -18,3 +18,8 @@
 .search-container.search-w-button:focus-within {
 	@apply border-gray-light;
 }
+
+/* Dropdown */
+.dropdown {
+	@apply outline-none px-10 py-3;
+}

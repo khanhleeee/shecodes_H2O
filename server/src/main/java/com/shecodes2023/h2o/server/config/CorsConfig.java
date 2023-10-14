@@ -22,7 +22,8 @@ public class CorsConfig {
                         .allowedOrigins("http://localhost:8000",
                                 "http://localhost:8081",
                                 "http://localhost:3000",
-                                "https://partnerup-api.azurewebsites.net/")
+                                "https://partnerup-api.azurewebsites.net/",
+                                "http://localhost:5173")
                         .allowCredentials(true)
                         .maxAge(MAX_AGE_SECS);
             }

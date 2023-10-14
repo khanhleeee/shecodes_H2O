@@ -19,8 +19,11 @@ public class CompanyResponse {
     private String province;
     private Integer budget;
     private String description;
+    private String content;
+    private String size;
     private Integer establishedYear;
     private Date createdDate;
     private List<String> categories;
     private List<String> services;
+    private List<String> awards;
 }

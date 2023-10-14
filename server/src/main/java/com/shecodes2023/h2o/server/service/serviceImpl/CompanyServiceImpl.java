@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -53,6 +54,11 @@ public class CompanyServiceImpl implements CompanyService {
                 .distinct()
                 .collect(Collectors.toList());
 
+        List<String> awards = customCompanyDTOS.stream()
+                .map(CustomCompanyDTO::getAward)
+                .distinct()
+                .collect(Collectors.toList());
+
         return new CompanyResponse(
                 customCompanyDTOS.get(0).getAccountId(),
                 customCompanyDTOS.get(0).getName(),
@@ -60,10 +66,13 @@ public class CompanyServiceImpl implements CompanyService {
                 customCompanyDTOS.get(0).getProvince(),
                 customCompanyDTOS.get(0).getBudget(),
                 customCompanyDTOS.get(0).getDescription(),
+                customCompanyDTOS.get(0).getContent(),
+                customCompanyDTOS.get(0).getSize(),
                 customCompanyDTOS.get(0).getEstablishedYear(),
                 customCompanyDTOS.get(0).getCreatedDate(),
                 categories,
-                services
+                services,
+                awards
         );
     }
 
@@ -115,5 +124,13 @@ public class CompanyServiceImpl implements CompanyService {
         if (services != null)
             strListServices = String.join(",", services);
         return (int) companyRepository.count(province, strListCategories, strListServices, minBudget, maxBudget);
+    }
+
+    @Override
+    public CompanyResponse getCompanyByCompanyId(int companyId) {
+        //Optional<CompanyInfoEntity> companyEntity = companyRepository.findById(companyId);
+        List<CustomCompanyDTO> customCompanyDTOS = companyRepository.findByCompanyId(companyId);
+
+        return getCompanyResponseFromListCustomCompanyDTO(customCompanyDTOS);
     }
 }

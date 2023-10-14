@@ -68,4 +68,24 @@ public interface CompanyRepository extends JpaRepository<CompanyInfoEntity, Inte
             @Param("minBudget") Integer minBudget,
             @Param("maxBudget") Integer maxBudget
     );
+
+    @Query(value = "SELECT ci.accountid,\n" +
+            "             ci.name,\n" +
+            "             CAST(ci.logo AS VARCHAR(MAX))          as logo,\n" +
+            "             ci.province,\n" +
+            "             ci.budget,\n" +
+            "             CAST(ci.description AS NVARCHAR(MAX))  AS Description,\n" +
+            "             CAST(ci.content AS NVARCHAR(MAX)) AS Content,\n" +
+            "             ci.establishedyear,\n" +
+            "             ci.createddate,\n" +
+            "             c.name                                 AS CategoryName,\n" +
+            "             s.name                                 AS ServiceName,\n" +
+            "             CAST(a.Description AS NVARCHAR(MAX)) AS Award\n" +
+            "      from CompanyInfo ci\n" +
+            "               join CompanyCategory cc on ci.AccountId = cc.CompanyId\n" +
+            "               join Service s on cc.ServiceId = s.Id\n" +
+            "               join Category c on s.CategoryId = c.Id\n" +
+            "      join Award a on ci.AccountId = a.CompanyId\n" +
+            "      where ci.AccountId = :companyId", nativeQuery = true)
+    List<CustomCompanyDTO> findByCompanyId(@Param("companyId") int companyId);
 }

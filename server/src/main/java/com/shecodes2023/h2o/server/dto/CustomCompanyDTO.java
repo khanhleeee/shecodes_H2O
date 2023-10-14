@@ -9,8 +9,11 @@ public interface CustomCompanyDTO {
     String getProvince();
     Integer getBudget();
     String getDescription();
+    String getContent();
+    String getSize();
     Integer getEstablishedYear();
     Date getCreatedDate();
     String getCategoryName();
     String getServiceName();
+    String getAward();
 }

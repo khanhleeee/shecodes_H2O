@@ -14,17 +14,11 @@ public class CompanyCategoryEntity {
     @Column(name = "CompanyId", nullable = false)
     private int companyId;
     @Basic
-    @Column(name = "CategoryId", nullable = false)
-    private int categoryId;
-    @Basic
     @Column(name = "ServiceId", nullable = true)
     private Integer serviceId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CompanyId", referencedColumnName = "AccountId", insertable = false, updatable = false)
     private CompanyInfoEntity companyInfoByCompanyId;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CategoryId", referencedColumnName = "Id", insertable = false, updatable = false)
-    private CategoryEntity categoryByCategoryId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ServiceId", referencedColumnName = "Id", insertable = false, updatable = false)
     private ServiceEntity serviceByServiceId;
@@ -45,14 +39,6 @@ public class CompanyCategoryEntity {
         this.companyId = companyId;
     }
 
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-    }
-
     public Integer getServiceId() {
         return serviceId;
     }
@@ -66,12 +52,12 @@ public class CompanyCategoryEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CompanyCategoryEntity that = (CompanyCategoryEntity) o;
-        return id == that.id && companyId == that.companyId && categoryId == that.categoryId && Objects.equals(serviceId, that.serviceId);
+        return id == that.id && companyId == that.companyId && Objects.equals(serviceId, that.serviceId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, companyId, categoryId, serviceId);
+        return Objects.hash(id, companyId, serviceId);
     }
 
     public CompanyInfoEntity getCompanyInfoByCompanyId() {
@@ -80,14 +66,6 @@ public class CompanyCategoryEntity {
 
     public void setCompanyInfoByCompanyId(CompanyInfoEntity companyInfoByCompanyId) {
         this.companyInfoByCompanyId = companyInfoByCompanyId;
-    }
-
-    public CategoryEntity getCategoryByCategoryId() {
-        return categoryByCategoryId;
-    }
-
-    public void setCategoryByCategoryId(CategoryEntity categoryByCategoryId) {
-        this.categoryByCategoryId = categoryByCategoryId;
     }
 
     public ServiceEntity getServiceByServiceId() {

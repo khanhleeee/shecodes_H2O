@@ -18,8 +18,6 @@ public class CategoryEntity {
     @Column(name = "Description", nullable = true, length = 2147483647)
     private String description;
     @OneToMany(mappedBy = "categoryByCategoryId")
-    private Collection<CompanyCategoryEntity> companyCategoriesById;
-    @OneToMany(mappedBy = "categoryByCategoryId")
     private Collection<ServiceEntity> servicesById;
 
     public int getId() {
@@ -57,14 +55,6 @@ public class CategoryEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, description);
-    }
-
-    public Collection<CompanyCategoryEntity> getCompanyCategoriesById() {
-        return companyCategoriesById;
-    }
-
-    public void setCompanyCategoriesById(Collection<CompanyCategoryEntity> companyCategoriesById) {
-        this.companyCategoriesById = companyCategoriesById;
     }
 
     public Collection<ServiceEntity> getServicesById() {

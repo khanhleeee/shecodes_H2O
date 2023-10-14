@@ -1,24 +1,28 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import About from './pages/About/About'
-import Header from './components/Header/Header'
+import NoHeaderLayout from './pages/NoHeaderLayout'
+import Login from './pages/Login/Login'
+import Layout from './pages/Layout'
 import Home from './pages/Home/Home'
-import ListBusinessPage from './pages/ListBusiness/ListBusinessPage'
 
 function App() {
 	return (
-    <div>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/agencies" element={<ListBusinessPage />} />
-          <Route path="/agencies/details" element={< About/>} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+		<div>
+			<BrowserRouter>
+				<Routes>
+					<Route path='/' element={<Layout />}>
+						<Route index element={<Home />} />
+						<Route path='/agencies' element={<About />} />
+						<Route path='/about' element={<About />} />
+					</Route>
+					<Route path='/login' element={<NoHeaderLayout />}>
+						<Route index element={<Login />} />
+					</Route>
+				</Routes>
+			</BrowserRouter>
+		</div>
+	)
 }
 
 export default App

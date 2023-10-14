@@ -15,10 +15,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,10 +30,20 @@ public class CompanyController {
     @SecurityRequirements
     @GetMapping
     public ResponseEntity<BaseResponse<List<CompanyResponse>>> getAllCompanies(
+            @RequestParam(name = "province", required = false) String province,
+            @RequestParam(name = "categories", required = false) List<String> categories,
+            @RequestParam(name = "services", required = false) List<String> services,
+            @RequestParam(name = "min-budget", required = false) Integer minBudget,
+            @RequestParam(name = "max-budget", required = false) Integer maxBudget,
             @ModelAttribute BasePaginationRequest paginationRequest
     ) {
 
         List<CompanyResponse> responses = companyService.getAllCompanies(
+                province,
+                categories,
+                services,
+                minBudget,
+                maxBudget,
                 paginationRequest
         );
 
@@ -44,6 +51,40 @@ public class CompanyController {
                 "Successfully!",
                 HttpStatus.OK,
                 responses
+        );
+    }
+
+    @SecurityRequirements
+    @GetMapping(value = "/count")
+    public ResponseEntity<BaseResponse<Integer>> count(@RequestParam(name = "province", required = false) String province,
+                                                       @RequestParam(name = "categories", required = false) List<String> categories,
+                                                       @RequestParam(name = "services", required = false) List<String> services,
+                                                       @RequestParam(name = "min-budget", required = false) Integer minBudget,
+                                                       @RequestParam(name = "max-budget", required = false) Integer maxBudget) {
+
+        int response = companyService.count(province,
+                categories,
+                services,
+                minBudget,
+                maxBudget);
+
+        return ResponseBuilder.generateResponse(
+                "Count list of company successfully!",
+                HttpStatus.OK,
+                response
+        );
+    }
+
+    @SecurityRequirements
+    @GetMapping(value = "/{companyId}")
+    public ResponseEntity<BaseResponse<CompanyResponse>> getCompanyByCompanyId(@PathVariable("companyId") int companyId) {
+
+        CompanyResponse response = companyService.getCompanyByCompanyId(companyId);
+
+        return ResponseBuilder.generateResponse(
+                "Get company by company ID successfully!",
+                HttpStatus.OK,
+                response
         );
     }
 }

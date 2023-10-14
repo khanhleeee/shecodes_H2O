@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+
 import PropTypes from 'prop-types';
 
-function RadioButton() {
+function RadioButton({ label }) {
   return (
     <>
       <div className="flex gap-10">
@@ -31,7 +33,7 @@ function RadioButton() {
             className="mt-px cursor-pointer select-none font-light text-gray-700"
             htmlFor="html"
           >
-            Radio Button
+            {label}
           </label>
         </div>
    

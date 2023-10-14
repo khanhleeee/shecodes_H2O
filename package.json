@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@material-tailwind/html": "^2.0.0"
+  },
+  "devDependencies": {
+    "source-map-loader": "^1.0.0"
+  }
+}

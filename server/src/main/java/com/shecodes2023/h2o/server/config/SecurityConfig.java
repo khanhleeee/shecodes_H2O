@@ -115,7 +115,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/webjars/**",
                         "/ws-message/**").permitAll() // Cho phép tất cả mọi người truy cập vào địa chỉ này
                 .antMatchers("/api/auth/**",
-                        "/api/home").permitAll()
+                        "/api/home",
+                        "/api/**").permitAll()
                 .anyRequest()
                 .authenticated(); // Tất cả các request khác đều cần phải xác thực mới được truy cập
 

@@ -19,6 +19,25 @@ export default {
 			},
 			fontFamily: {
 				'sf': 'SF Pro Display',
+				'inter': 'Inter',
+			},
+			backgroundImage: {
+				'home-about': 'url("./src/assets/backgrounds/about_bg.png")',
+				'home-partners': 'url("./src/assets/backgrounds/pnofmonth_bg.png")',
+			},
+			keyframes: {
+				scroll: {
+					'0%': { 'transform': 'translateX(0)' },
+					'100%': { 'transform': 'translateX(calc(-250px * 6))' },
+				},
+				scrollFoward: {
+					'0%': { 'transform': 'translateX(0)' },
+					'100%': { 'transform': 'translateX(calc(250px * 3))' },
+				},
+			},
+			animation: {
+				scroll: 'scroll 28s linear infinite',
+				scrollFoward: 'scrollFoward 10s linear infinite',
 			},
 		},
 	},

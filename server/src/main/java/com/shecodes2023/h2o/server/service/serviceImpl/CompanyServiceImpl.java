@@ -80,6 +80,11 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public List<CompanyResponse> getAllCompanies(
+            String province,
+            List<String> categories,
+            List<String> services,
+            Integer minBudget,
+            Integer maxBudget,
             BasePaginationRequest basePaginationRequest
     ) {
 
@@ -87,7 +92,16 @@ public class CompanyServiceImpl implements CompanyService {
         Sort.Order defaultSortOrder = new Sort.Order(Sort.Direction.ASC, DefaultSortPropertyConstant.ACCOUNT_ID);
         Pageable pageable = PaginationUtil.getPageable(basePaginationRequest, defaultSortOrder);
 
-        List<CustomCompanyDTO> customCompanyDTOS = companyRepository.findAllCompanies(basePaginationRequest.getPageSize(), basePaginationRequest.getPageIndex());
+        String strListCategories = null;
+        String strListServices = null;
+        if (categories != null)
+            strListCategories = String.join(",", categories);
+        if (services != null)
+            strListServices = String.join(",", services);
+        List<CustomCompanyDTO> customCompanyDTOS = new ArrayList<>();
+        if (basePaginationRequest.getPageIndex() != null && basePaginationRequest.getPageSize() != null)
+            customCompanyDTOS = companyRepository.findAllCompanies(province, strListCategories, strListServices, basePaginationRequest.getPageSize(), basePaginationRequest.getPageIndex());
+        else customCompanyDTOS = companyRepository.findAllCompanies(province, strListCategories, strListServices, 10, 1);
 
         return getListCompanyResponseFromListCustomCompanyDTO(customCompanyDTOS);
     }

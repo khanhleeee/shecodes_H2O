@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ArrowRight from '../../assets/icons/arrow_right.svg'
 
 import SearchBar from '../../components/SearchBar/SearchBar'
+import HightLightCard from '../../components/Card/HightLightCard'
 
 import LogoUp from '../../assets/logo_up.png'
 import LogoUpHorizontal from '../../assets/logo_up_horizontal.png'
@@ -12,20 +13,24 @@ import Sponsor2 from '../../assets/sponsors/sponsor2.png'
 import Sponsor3 from '../../assets/sponsors/sponsor3.png'
 import Text1 from '../../assets/imgs/text1.png'
 import Piece1 from '../../assets/imgs/piece1.png'
+
 import partnerUpApi from '../../config/partnerupdb'
+import FeedbackCard from '../../components/Card/FeedbackCard'
 
 function Home() {
+	const [companiesOfMonth, setCompaniesOfMonth] = useState([])
+
 	useEffect(() => {
-		const getCompanis = async () => {
-			const result = await partnerUpApi.getCompanyList({
+		const getCompanies = async () => {
+			const res = await partnerUpApi.getCompanyList({
 				params: {
 					pageIndex: 1,
-					pageSize: 10,
+					pageSize: 4,
 				},
 			})
-			console.log(result)
+			setCompaniesOfMonth(res.data || [])
 		}
-		getCompanis()
+		getCompanies()
 	}, [])
 
 	return (
@@ -33,14 +38,16 @@ function Home() {
 			{/* OVERVIEW */}
 			<section
 				id='overview'
-				className='container px-16 min-h-screen bg-home-about bg-cover flex items-center'
+				className='px-16 h-screen bg-home-about bg-cover'
 			>
-				<div>
-					<img className='h-[300px] mb-8 select-none' src={LogoUp} />
-					<SearchBar buttonSearch />
-				</div>
-				<div>
-					<img src={HomePics} alt='' />
+				<div className='container mx-auto h-full flex items-center'>
+					<div>
+						<img className='h-[300px] mb-8 select-none' src={LogoUp} />
+						<SearchBar buttonSearch />
+					</div>
+					<div>
+						<img src={HomePics} alt='' />
+					</div>
 				</div>
 			</section>
 
@@ -58,8 +65,8 @@ function Home() {
 			</div>
 
 			{/* HIGHTLIGHT */}
-			<section className='container px-16 py-[60px] font-extrabold'>
-				<div className='flex items-center'>
+			<section className='px-16 py-[60px] font-extrabold'>
+				<div className='container flex items-center'>
 					<h2>Tốt hơn</h2>
 					<div className='bg-[#FFE95C] w-[400px] py-4 mx-6 rounded-full overflow-hidden'>
 						<div className='h-full w-[calc(250px * 6)] animate-scrollFoward flex items-center'>
@@ -98,11 +105,34 @@ function Home() {
 			>
 				<h2 className='pt-36 pb-8'>Đối tác của tháng</h2>
 				<p className='font-bold'>
-					Chúng tôi tự hào giới thiệu Đối tác của Tháng, giúp nổi bật sự
+					Chúng tôi tự hào giới thiệu Đối tác của tháng, giúp nổi bật sự
 					hợp tác và đóng góp đặc biệt vào cộng đồng của chúng tôi.
 				</p>
-				<div></div>
+				<div className='container grid grid-cols-4 gap-4 py-10 place-items-center px-32'>
+					{companiesOfMonth.map((company) => (
+						<HightLightCard key={company.accountId} item={company} />
+					))}
+				</div>
 			</section>
+
+			<section id='feedback' className='w-full bg-[#151515]'>
+				<div className='container mx-auto text-white py-14 px-32'>
+					<h2>
+						Đối tác của{' '}
+						<span className='uppercase text-primary-500'>Partner Up</span>{' '}
+						nói gì?
+					</h2>
+					<div className='flex items-center py-10 gap-4'>
+						<FeedbackCard />
+						<div>
+							<FeedbackCard />
+						</div>
+						<FeedbackCard />
+					</div>
+				</div>
+			</section>
+
+			<section></section>
 		</div>
 	)
 }

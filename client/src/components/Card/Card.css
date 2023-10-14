@@ -1,12 +1,10 @@
-.form-card{
-    @apply relative mt-6 flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md;
+.fb-card {
+	border: 0.5px solid #c3c3c3;
 }
-
-.title {
-  @apply mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-900 antialiased;
-}
-
-
-.child-title{
-    @apply block font-sans text-base font-light leading-relaxed text-inherit antialiased;
+.description {
+	display: -webkit-box;
+	max-width: 100%;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }

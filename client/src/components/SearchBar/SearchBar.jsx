@@ -8,9 +8,31 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import Button from '../Button/Button'
 
 import './SearchBar.css'
+import { useFormik } from 'formik'
+import partnerUpApi from '../../config/partnerupdb'
 
 function SearchBar(props) {
 	const { buttonSearch } = props
+
+	const initialValues = {
+		location: '',
+		field: '',
+	}
+
+	const onSubmit = async (values) => {
+		const res = await partnerUpApi.getCompanyList({
+			params: {
+				province: values.location,
+				categories: values.field,
+			},
+		})
+		console.log(res)
+	}
+
+	const formik = useFormik({
+		initialValues,
+		onSubmit,
+	})
 
 	const searchClasses = classNames('search-container', {
 		'search-w-button': buttonSearch,
@@ -24,28 +46,45 @@ function SearchBar(props) {
 		}
 	}
 
-	useEffect(() => {
-		// Search API
-	}, [])
-
 	return (
 		<div className={searchClasses}>
 			{buttonSearch ? (
-				<>
-					<span>Fields</span>
-					<span>Services</span>
-					<input
-						value={searchText}
-						className='h-full outline-none placeholder:font-bold text-black pl-8 pr-4'
-						placeholder='Placeholder text here'
-						onChange={(e) => setSearchText(e.target.value)}
-						onKeyDown={handleKeyDown}
-					/>
+				<form className='flex' onSubmit={formik.handleSubmit}>
+					<select
+						value={formik.values.location}
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						id='location'
+						name='location'
+						className='dropdown'
+					>
+						<option selected value='' disabled>
+							Địa điểm
+						</option>
+						<option value='Hồ Chí Minh'>Hồ Chí Minh</option>
+						<option value='Hà Nội'>Hà Nội</option>
+						<option value='Đà Nẵng'>Đà Nẵng</option>
+					</select>
+					<select
+						id='field'
+						className='dropdown'
+						value={formik.values.field}
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+					>
+						<option selected value='' disabled>
+							Lĩnh vực
+						</option>
+						<option value='Công nghệ'>Công nghệ</option>
+						<option value='Marketing'>Marketing</option>
+						<option value='Thiết kế'>Thiết kế</option>
+					</select>
 					<Button
+						type='submit'
 						className='ml-4'
 						icon={<MagnifyingGlassIcon className='h-5 w-5' />}
 					/>
-				</>
+				</form>
 			) : (
 				<>
 					<input

@@ -5,15 +5,14 @@ const SERVER = "https://partnerup-api.azurewebsites.net";
 
 
 export const endpoints = {
-  companies: `${SERVER}/api/companies?pageIndex=1&pageSize=10/`,
+  "companies": `${SERVER}/api/companies?pageIndex=1&pageSize=10`,
 };
 
 export const authApi = () => {
     return axios.create({
         baseURL: SERVER,
         headers: {
-            "Authorization":  cookie.load("token"),
-            
+            "Authorization": cookie.load("token"),
         }
     })
 }

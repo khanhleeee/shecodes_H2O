@@ -1,18 +1,18 @@
-import Button from './components/Button/Button'
-import Card from './components/Card/Card'
-import CheckBox from './components/Checkbox/Checkbox'
-import RadioButton from './components/RadioButton/RadioButton'
-import SearchBar from './components/SearchBar/SearchBar'
-import Form from './components/Form/Form'
+// import Button from './components/Button/Button'
+// import Card from './components/Card/Card'
+// import CheckBox from './components/Checkbox/Checkbox'
+// import RadioButton from './components/RadioButton/RadioButton'
+// import SearchBar from './components/SearchBar/SearchBar'
+// import Form from './components/Form/Form'
 
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+// import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 
-
+import ListBusinessPage from './pages/ListBusinessPage'
 
 function App() {
 	return (
 		<div id='App' className='p-2'>
-			<h2>Button</h2>
+			{/* <h2>Button</h2>
 			<div className='flex py-4 mb-8'>
 				<Button>Primary</Button>
 				<Button secondary>Secondary</Button>
@@ -55,7 +55,8 @@ function App() {
 					numquam tenetur pariatur provident, ea culpa voluptas consequatur
 					repellendus dolorum laborum quae quas magni id.
 				</p>
-			</div>
+			</div> */}
+			<ListBusinessPage></ListBusinessPage>
 		</div>
 	)
 }

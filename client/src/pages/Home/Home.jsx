@@ -5,6 +5,7 @@ import SearchBar from '../../components/SearchBar/SearchBar'
 import HightLightCard from '../../components/Card/HightLightCard'
 
 import LogoUp from '../../assets/logo_up.png'
+import LogoUpOnly from '../../assets/LogoUpOnly.png'
 import LogoUpHorizontal from '../../assets/logo_up_horizontal.png'
 
 import HomePics from '../../assets/imgs/home-about_img.png'
@@ -132,7 +133,14 @@ function Home() {
 				</div>
 			</section>
 
-			<section></section>
+			<section>
+				<div className='container p-32 flex'>
+					<div className='flex flex-col'>
+						<h2 className='text-6xl'>Hỏi đáp cùng</h2>
+						<img className='w-[500px]' src={LogoUpOnly} alt='' />
+					</div>
+				</div>
+			</section>
 		</div>
 	)
 }

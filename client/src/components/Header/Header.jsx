@@ -1,5 +1,8 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
+
+import { BiSolidUserCircle } from 'react-icons/bi'
+import { MdKeyboardArrowDown } from 'react-icons/md'
 
 import Button from '../Button/Button'
 
@@ -25,6 +28,7 @@ const navItems = [
 ]
 
 function Header() {
+	const user = JSON.parse(localStorage.getItem('user'))
 	const headerRef = useRef(null)
 
 	useEffect(() => {
@@ -66,10 +70,19 @@ function Header() {
 						</NavLink>
 					))}
 				</nav>
-				<div>
-					<Button text>Đăng ký</Button>
-					<Button>Đăng nhập</Button>
-				</div>
+				{user ? (
+					<div className='flex'>
+						<BiSolidUserCircle className='h-6 w-6' />{' '}
+						<MdKeyboardArrowDown className='h-6 w-6' />{' '}
+					</div>
+				) : (
+					<div>
+						<Button text>Đăng ký</Button>
+						<Link to='/login'>
+							<Button>Đăng nhập</Button>
+						</Link>
+					</div>
+				)}
 			</div>
 		</header>
 	)

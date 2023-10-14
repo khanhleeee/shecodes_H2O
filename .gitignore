@@ -34,3 +34,5 @@ build/
 
 server/logs/**
 server/src/main/resources/profiles/**
+
+node_modules

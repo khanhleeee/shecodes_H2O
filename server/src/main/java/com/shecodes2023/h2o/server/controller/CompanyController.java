@@ -76,8 +76,8 @@ public class CompanyController {
     }
 
     @SecurityRequirements
-    @GetMapping(value = "/{company-id}")
-    public ResponseEntity<BaseResponse<CompanyResponse>> getCompanyByCompanyId(@PathVariable("company-id") int companyId) {
+    @GetMapping(value = "/{companyId}")
+    public ResponseEntity<BaseResponse<CompanyResponse>> getCompanyByCompanyId(@PathVariable("companyId") int companyId) {
 
         CompanyResponse response = companyService.getCompanyByCompanyId(companyId);
 

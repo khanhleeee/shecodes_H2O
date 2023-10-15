@@ -5,6 +5,7 @@ import com.shecodes2023.h2o.server.mapper.ServiceMapper;
 import com.shecodes2023.h2o.server.repository.ServiceRepository;
 import com.shecodes2023.h2o.server.response.ServiceResponse;
 import com.shecodes2023.h2o.server.service.ServiceService;
+import com.shecodes2023.h2o.server.utils.FilterKeysUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class ServiceServiceImpl implements ServiceService {
 
     @Override
     public List<ServiceResponse> getAllService() {
-        List<ServiceEntity> serviceEntities = serviceRepository.findAll().stream().distinct().collect(Collectors.toList());
+        List<ServiceEntity> serviceEntities = serviceRepository.findAll().stream().filter(FilterKeysUtil.distinctByKeys(ServiceEntity::getName)).collect(Collectors.toList());
 
         return serviceEntities.stream()
                 .map(entity -> serviceMapper.convertServiceEntityToServiceResponse(entity))

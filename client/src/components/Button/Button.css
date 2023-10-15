@@ -1,6 +1,6 @@
 /* Fill button */
 .btn {
-	@apply bg-primary-500 text-white text-[15px] leading-6 py-2 px-5 rounded-lg mr-2 hover:bg-primary-400 active:bg-primary-600 transition-colors duration-150 select-none capitalize;
+	@apply bg-primary-500 text-white text-[15px] leading-6 py-2 px-5 rounded-lg mr-2 hover:bg-primary-400 active:bg-primary-600 transition-colors duration-150 select-none capitalize outline-none;
 }
 .btn.circle {
 	@apply flex items-center rounded-full p-3 leading-none;

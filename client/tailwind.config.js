@@ -24,6 +24,7 @@ export default {
 			backgroundImage: {
 				'home-about': 'url("./src/assets/backgrounds/about_bg.png")',
 				'home-partners': 'url("./src/assets/backgrounds/pnofmonth_bg.png")',
+				'feedback-tag': 'url("./src/assets/imgs/feedback-tag.png")',
 			},
 			keyframes: {
 				scroll: {

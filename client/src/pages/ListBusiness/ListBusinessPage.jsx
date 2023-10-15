@@ -40,7 +40,7 @@ function ListBusinessPage() {
                 className="flex flex-nowrap overflow-x-auto"
                 style={{ overflowX: "auto", whiteSpace: "nowrap" }}
               >
-                <NavLink to="/agency/details">
+                <NavLink to="/agencies/details">
                   <CardDetails></CardDetails>
                 </NavLink>
               </div>

@@ -1,18 +1,16 @@
-import { useEffect } from 'react'
 import ArrowRight from '../../assets/icons/arrow_right.svg'
-
-import SearchBar from '../../components/SearchBar/SearchBar'
-
+import HomePics from '../../assets/imgs/home-about_img.png'
 import LogoUp from '../../assets/logo_up.png'
 import LogoUpHorizontal from '../../assets/logo_up_horizontal.png'
-
-import HomePics from '../../assets/imgs/home-about_img.png'
+import Piece1 from '../../assets/imgs/piece1.png'
+import QA from '../../components/Q&A/Q&A'
+import SearchBar from '../../components/SearchBar/SearchBar'
 import Sponsor1 from '../../assets/sponsors/sponsor1.png'
 import Sponsor2 from '../../assets/sponsors/sponsor2.png'
 import Sponsor3 from '../../assets/sponsors/sponsor3.png'
 import Text1 from '../../assets/imgs/text1.png'
-import Piece1 from '../../assets/imgs/piece1.png'
 import partnerUpApi from '../../config/partnerupdb'
+import { useEffect } from 'react'
 
 function Home() {
 	useEffect(() => {
@@ -102,6 +100,9 @@ function Home() {
 					hợp tác và đóng góp đặc biệt vào cộng đồng của chúng tôi.
 				</p>
 				<div></div>
+			</section>
+			<section>
+				<QA></QA>
 			</section>
 		</div>
 	)

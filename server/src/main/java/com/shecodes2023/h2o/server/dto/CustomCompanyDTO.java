@@ -16,4 +16,6 @@ public interface CustomCompanyDTO {
     String getCategoryName();
     String getServiceName();
     String getAward();
+    Integer getConnectionCount();
+    Integer getViewProfileCount();
 }

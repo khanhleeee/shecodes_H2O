@@ -132,14 +132,6 @@ function Home() {
 			</section>
 
 			<section>
-				<div className='container p-32 flex'>
-					<div className='flex flex-col'>
-						<h2 className='text-6xl'>Hỏi đáp cùng</h2>
-						<img className='w-[500px]' src={LogoUpOnly} alt='' />
-					</div>
-				</div>
-			</section>
-			<section>
 				<QA></QA>
 			</section>
 		</div>

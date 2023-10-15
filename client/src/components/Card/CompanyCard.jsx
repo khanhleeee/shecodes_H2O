@@ -13,7 +13,7 @@ function CompanyCard({ item, noDesc = false }) {
 	}
 
 	return (
-		<Link to={`/agencies/${item.accountId}`}>
+		<Link to={`/agencies/details`}>
 			<div className='flex flex-col justify-center p-6 bg-white rounded-xl h-full shadow-md hover:-translate-y-1 transition-transform duration-200'>
 				{/* Header */}
 				<div className='flex justify-between items-top'>

@@ -5,6 +5,10 @@ const partnerUpApi = {
 		const url = '/companies'
 		return axiosClient.get(url, params)
 	},
+	getServices: (params) => {
+		const url = '/services'
+		return axiosClient.get(url, params)
+	},
 }
 
 export default partnerUpApi

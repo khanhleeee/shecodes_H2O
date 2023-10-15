@@ -10,6 +10,7 @@ import Button from '../Button/Button'
 import './SearchBar.css'
 import { useFormik } from 'formik'
 import partnerUpApi from '../../config/partnerupdb'
+import { useNavigate } from 'react-router'
 
 function SearchBar(props) {
 	const { buttonSearch } = props
@@ -19,14 +20,9 @@ function SearchBar(props) {
 		field: '',
 	}
 
+	const navigate = useNavigate()
 	const onSubmit = async (values) => {
-		const res = await partnerUpApi.getCompanyList({
-			params: {
-				province: values.location,
-				categories: values.field,
-			},
-		})
-		console.log(res)
+		navigate(`/agencies/${values.location}/${values.field}`)
 	}
 
 	const formik = useFormik({

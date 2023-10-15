@@ -26,4 +26,6 @@ public class CompanyResponse {
     private List<String> categories;
     private List<String> services;
     private List<String> awards;
+    private Integer connectionCount;
+    private Integer viewProfileCount;
 }

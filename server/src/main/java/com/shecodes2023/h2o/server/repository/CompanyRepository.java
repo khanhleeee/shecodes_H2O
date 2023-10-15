@@ -24,6 +24,8 @@ public interface CompanyRepository extends JpaRepository<CompanyInfoEntity, Inte
             "             ci.createddate,\n" +
             "             c.name                                 AS CategoryName,\n" +
             "             s.name                                 AS ServiceName,\n" +
+            "             ci.connectionCount,\n" +
+            "             ci.viewProfileCount,\n" +
             "             DENSE_RANK() OVER (ORDER BY AccountId) AS Rank\n" +
             "      from CompanyInfo ci\n" +
             "               join CompanyCategory cc on ci.AccountId = cc.CompanyId\n" +

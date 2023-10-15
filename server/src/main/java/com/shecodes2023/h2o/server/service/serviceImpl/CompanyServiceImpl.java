@@ -72,7 +72,9 @@ public class CompanyServiceImpl implements CompanyService {
                 customCompanyDTOS.get(0).getCreatedDate(),
                 categories,
                 services,
-                awards
+                awards,
+                customCompanyDTOS.get(0).getConnectionCount(),
+                customCompanyDTOS.get(0).getViewProfileCount()
         );
     }
 

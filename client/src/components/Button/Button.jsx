@@ -29,7 +29,11 @@ function Button(props) {
 	)
 
 	return (
-		<button className={btnClasses} onClick={disabled ? () => {} : onClick} {...otherProps}>
+		<button
+			className={btnClasses}
+			onClick={disabled ? () => {} : onClick}
+			{...otherProps}
+		>
 			{icon && icon}
 			{children}
 		</button>

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useFormik } from 'formik'
 
 // import Card from "../components/Card/Card"
-
 import CompanyCard from '../../components/Card/CompanyCard'
 import CheckBox from '../../components/Checkbox/Checkbox'
 import RadioButton from '../../components/RadioButton/RadioButton'

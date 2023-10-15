@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import About from './pages/About/About'
-import NoHeaderLayout from './pages/NoHeaderLayout'
+import Home from './pages/Home/Home'
+import ListBusinessDetails from './pages/ListBusiness/ListBusinessDetails'
+import ListBusinessPage from './pages/ListBusiness/ListBusinessPage'
 import Login from './pages/Login/Login'
 import Layout from './pages/Layout'
-import Home from './pages/Home/Home'
-import ListBusinessPage from './pages/ListBusiness/ListBusinessPage'
-import ListBusinessDetails from './pages/ListBusiness/ListBusinessDetails'
+import NoHeaderLayout from './pages/NoHeaderLayout'
 
 function App() {
 	return (
@@ -21,7 +21,7 @@ function App() {
 							element={<ListBusinessPage />}
 						/>
 						<Route
-							path='/agencies/:id'
+							path='/agencies/details'
 							element={<ListBusinessDetails />}
 						/>
 						<Route path='/about' element={<About />} />

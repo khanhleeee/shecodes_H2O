@@ -1,22 +1,20 @@
 import { useEffect, useState } from 'react'
+
 import ArrowRight from '../../assets/icons/arrow_right.svg'
-
-import SearchBar from '../../components/SearchBar/SearchBar'
+import FeedbackCard from '../../components/Card/FeedbackCard'
 import HightLightCard from '../../components/Card/HightLightCard'
-
-import LogoUp from '../../assets/logo_up.png'
-import LogoUpOnly from '../../assets/LogoUpOnly.png'
-import LogoUpHorizontal from '../../assets/logo_up_horizontal.png'
-
 import HomePics from '../../assets/imgs/home-about_img.png'
+import LogoUp from '../../assets/logo_up.png'
+import LogoUpHorizontal from '../../assets/logo_up_horizontal.png'
+import LogoUpOnly from '../../assets/LogoUpOnly.png'
+import Piece1 from '../../assets/imgs/piece1.png'
+import QA from '../../components/Q&A/Q&A'
+import SearchBar from '../../components/SearchBar/SearchBar'
 import Sponsor1 from '../../assets/sponsors/sponsor1.png'
 import Sponsor2 from '../../assets/sponsors/sponsor2.png'
 import Sponsor3 from '../../assets/sponsors/sponsor3.png'
 import Text1 from '../../assets/imgs/text1.png'
-import Piece1 from '../../assets/imgs/piece1.png'
-
 import partnerUpApi from '../../config/partnerupdb'
-import FeedbackCard from '../../components/Card/FeedbackCard'
 
 function Home() {
 	const [companiesOfMonth, setCompaniesOfMonth] = useState([])
@@ -140,6 +138,9 @@ function Home() {
 						<img className='w-[500px]' src={LogoUpOnly} alt='' />
 					</div>
 				</div>
+			</section>
+			<section>
+				<QA></QA>
 			</section>
 		</div>
 	)
